@@ -29,7 +29,7 @@ public class ExperienceListCreator
 		//Takes the FiloIOdata...
 		//...
 		// some loop maybe
-		experienceList.add(generateExperience(DATA));
+		experienceList.add(generateExperience());
 		
 		return experienceList;
 	}
