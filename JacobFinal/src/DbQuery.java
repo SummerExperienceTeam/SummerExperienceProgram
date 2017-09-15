@@ -3,10 +3,12 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+
 import javafx.scene.paint.Color;
 
 import javax.swing.JLabel;
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
 
 import javax.swing.JTextField;
@@ -25,7 +27,17 @@ public class DbQuery extends JFrame {
 	private JButton btnSearch;
 	private JScrollPane scrollPane;  
 	private JTable table;
+	private JLabel experiencesLabel;
 	
+	
+	Experience testExperience = new Experience(true,true,"Greenpeace","California", "Monteray", 
+			"Saving the whales", "It was fun", 30, Experience.StudentStanding.SENIOR, Experience.CompensationType.UNPAID,
+			Experience.MainActivity.VOLUNTEERING);
+	/*
+	 * boolean international, boolean internship, String organization, String state, String city,
+			String natureOfWork, String addtionalInformation, int hoursPerWeek, StudentStanding standing,
+			CompensationType compensation, MainActivity activity
+	 */
 
 	public static void main(String[] args) {
 		DbQuery ourGUI = new DbQuery();
@@ -41,32 +53,44 @@ public class DbQuery extends JFrame {
 		contentPane.setBorder(new EmptyBorder(50, 50, 50, 50));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane); 
+		
 		JPanel panel = new JPanel();
 		FlowLayout flowLayout = (FlowLayout) panel.getLayout();
 		flowLayout.setAlignment(FlowLayout.LEFT);
 		contentPane.add(panel, BorderLayout.NORTH);
 		
 		
-		//JLabel enterQuery = new JLabel("Enter Query");
-		//panel.add(enterQuery);
 		
-		//lastNameTextField = new JTextField();
-		//panel.add(lastNameTextField);
-		//lastNameTextField.setColumns(10);
 		
-		//btnSearch = new JButton("Search");
-		//panel.add(btnSearch);
 		
+		
+//		JLabel enterQuery = new JLabel("Enter Query");
+//		panel.add(enterQuery);
+//		
+//		lastNameTextField = new JTextField();
+//		panel.add(lastNameTextField);
+//		lastNameTextField.setColumns(10);
+//		
+//		btnSearch = new JButton("Search");
+//		panel.add(btnSearch);
+//		
 		scrollPane = new JScrollPane();
+		scrollPane.setBorder(new EmptyBorder(50, 50, 50, 50));
 		contentPane.add(scrollPane, BorderLayout.CENTER);
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
 		
+		experiencesLabel = new JLabel("Stuff");
+		experiencesLabel.setLayout(new GridLayout());
+		contentPane.add(experiencesLabel, BorderLayout.CENTER);
+		
+		
+		
 	
 	//Drop down menus/ 
 		
-		String[] StateFilter = { "Select State", "Alabama", "Alaska", "Arkansas", "California" };
+		String[] StateFilter = { "Select State", "Alabama", "Alaska", "Arkansas", "California"};
 		JComboBox stateList = new JComboBox(StateFilter);
 		panel.add(stateList);
 		

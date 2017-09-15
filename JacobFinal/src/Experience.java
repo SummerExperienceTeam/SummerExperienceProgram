@@ -49,6 +49,7 @@ public class Experience
 		this.activity = activity;
 	}
 
+	
 	public boolean isInternational() {
 		return international;
 	}
@@ -93,5 +94,10 @@ public class Experience
 		return activity;
 	}
 	
-
+	public String toString()
+	{
+		String configuredData = "";
+		return configuredData;
+		
+	}
 }

@@ -1,4 +1,7 @@
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class txtFileToListMaker 
 {
@@ -12,18 +15,14 @@ public class txtFileToListMaker
 		      Scanner s = new Scanner(file);
 		      while(s.hasNext())
 		      {
-		    	  	nextString = s.next();
-		        items.add(nextString)
+		    	  	String nextString = s.next();
+		        items.add(nextString);
 		      }
 		    }
 		    catch(IOException e)
 		    {
 		      System.out.println("There was an error creating an ArrayList<String> out of the text file.");
 		    }
-		
-		
-		
-		
-		
+		  return items;
 	}
 }
