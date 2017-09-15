@@ -49,6 +49,20 @@ public class Experience
 		this.activity = activity;
 	}
 
+	public String getStandingString()
+	{
+		return this.standing.name();
+	}
+	
+	public String getCompensationString()
+	{
+		return this.compensation.name();
+	}
+	
+	public String getActivityString()
+	{
+		return this.activity.name();
+	}
 	
 	public boolean isInternational() {
 		return international;
@@ -96,7 +110,22 @@ public class Experience
 	
 	public String toString()
 	{
-		String configuredData = "";
+		String intl = "";
+		String intern = "";
+		if(international == true)
+		{
+			intl = "International";
+		}
+		if(internship == true)
+		{
+			intl = "Internship";
+		}
+
+			
+		String configuredData = intl+", "+intern+", "+ organization+ ", "+ getActivityString() +", " + state + ", " + city + ", " 
+		+ natureOfWork + ", " + addtionalInformation + ", " + getStandingString() + ", " + getCompensationString();
+		
+		
 		return configuredData;
 		
 	}

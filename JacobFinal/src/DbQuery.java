@@ -81,7 +81,7 @@ public class DbQuery extends JFrame {
 		table = new JTable();
 		scrollPane.setViewportView(table);
 		
-		experiencesLabel = new JLabel("Stuff");
+		experiencesLabel = new JLabel(testExperience.toString());
 		experiencesLabel.setLayout(new GridLayout());
 		contentPane.add(experiencesLabel, BorderLayout.CENTER);
 		
