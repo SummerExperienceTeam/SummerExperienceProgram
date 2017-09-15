@@ -114,16 +114,16 @@ public class Experience
 		String intern = "";
 		if(international == true)
 		{
-			intl = "International";
+			intl = "International, ";
 		}
 		if(internship == true)
 		{
-			intl = "Internship";
+			intl = "Internship, ";
 		}
 
 			
-		String configuredData = intl+", "+intern+", "+ organization+ ", "+ getActivityString() +", " + state + ", " + city + ", " 
-		+ natureOfWork + ", " + addtionalInformation + ", " + getStandingString() + ", " + getCompensationString();
+		String configuredData = intl+intern+ organization+ ", "+ getActivityString() +", " + state + ", " + city + ", " 
+		+ natureOfWork + ", " + "Comments:"+ addtionalInformation + ", " + getStandingString() + ", " + getCompensationString();
 		
 		
 		return configuredData;

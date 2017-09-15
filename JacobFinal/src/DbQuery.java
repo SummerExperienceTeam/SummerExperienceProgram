@@ -1,14 +1,19 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 
-import javafx.scene.paint.Color;
+//import javafx.scene.paint.Color;
 
 import javax.swing.JLabel;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
 import javax.swing.JTextField;
@@ -44,6 +49,10 @@ public class DbQuery extends JFrame {
 	}
 
 	
+	public String getSearchCriteria(JComboBox state, JComboBox city, )
+	
+	
+	
 	public DbQuery() {
 		
 		setTitle("Database Search");
@@ -58,12 +67,11 @@ public class DbQuery extends JFrame {
 		FlowLayout flowLayout = (FlowLayout) panel.getLayout();
 		flowLayout.setAlignment(FlowLayout.LEFT);
 		contentPane.add(panel, BorderLayout.NORTH);
+		getContentPane().setBackground(Color.lightGray);
 		
 		
 		
-		
-		
-		
+			
 //		JLabel enterQuery = new JLabel("Enter Query");
 //		panel.add(enterQuery);
 //		
@@ -83,12 +91,17 @@ public class DbQuery extends JFrame {
 		
 		experiencesLabel = new JLabel(testExperience.toString());
 		experiencesLabel.setLayout(new GridLayout());
+		experiencesLabel.setFont(new Font("Arial", Font.BOLD, 16));
 		contentPane.add(experiencesLabel, BorderLayout.CENTER);
+		
 		
 		
 		
 	
 	//Drop down menus/ 
+		JButton searchButton = new JButton("Search");
+		panel.add(searchButton);
+		
 		
 		String[] StateFilter = { "Select State", "Alabama", "Alaska", "Arkansas", "California"};
 		JComboBox stateList = new JComboBox(StateFilter);
@@ -117,6 +130,20 @@ public class DbQuery extends JFrame {
 		internshipBox.setMnemonic(KeyEvent.VK_C); 
 		internshipBox.setSelected(false);
 		panel.add(internshipBox);
+		panel.setBackground(Color.gray);
+		
+		
+		searchButton.addActionListener(new ActionListener() 
+		{
+			@Override
+			public void actionPerformed(ActionEvent e) 
+			{
+				String searchCriteria = getSearchCriteria(stateList, studentStandingList, compensationList, mainActivityList, internationalBox, internshipBox);
+				
+			}	
+		} );
+		
+		
 		//internationalBox.addItemListener(this);
 		setVisible(true);
 		
