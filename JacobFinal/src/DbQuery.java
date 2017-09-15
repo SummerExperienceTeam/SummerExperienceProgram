@@ -33,6 +33,7 @@ public class DbQuery extends JFrame {
 	private JScrollPane scrollPane;  
 	private JTable table;
 	private JLabel experiencesLabel;
+	private JLabel searchCriteriaLabel;
 	
 	
 	Experience testExperience = new Experience(true,true,"Greenpeace","California", "Monteray", 
@@ -51,8 +52,9 @@ public class DbQuery extends JFrame {
 	
 	public String getSearchCriteria(JComboBox state, JComboBox standing, JComboBox compensationList,JComboBox mainActivityList, JCheckBox internationalBox, JCheckBox internshipBox)
 	{
+		//NEED TO ATT STUFF FOR INTERNATIONAL AND INTERNSHIP BUTTONS.
 		String criteriaToReturn = (String) state.getSelectedItem() +" " + (String) standing.getSelectedItem()  +" " + (String) compensationList.getSelectedItem() +" " + (String) mainActivityList.getSelectedItem();
-		System.out.println(criteriaToReturn);
+		
 		return criteriaToReturn;
 	}
 	
@@ -65,7 +67,7 @@ public class DbQuery extends JFrame {
 		setBounds(600, 600, 1200, 1200);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(50, 50, 50, 50));
-		contentPane.setLayout(new BorderLayout(0, 0));
+		contentPane.setLayout(new BorderLayout(0, 1));
 		setContentPane(contentPane); 
 		
 		JPanel panel = new JPanel();
@@ -145,9 +147,14 @@ public class DbQuery extends JFrame {
 			public void actionPerformed(ActionEvent e) 
 			{
 				String searchCriteria = getSearchCriteria(stateList, studentStandingList, compensationList, mainActivityList, internationalBox, internshipBox);
-				JLabel searchCriteriaLabel = new JLabel(searchCriteria);
-				contentPane.add(searchCriteriaLabel, BorderLayout.SOUTH);
+				searchCriteriaLabel = new JLabel(searchCriteria);
+				searchCriteriaLabel.setLayout(new GridLayout());
+				searchCriteriaLabel.setFont(new Font("Arial", Font.BOLD, 16));
+				contentPane.add(searchCriteriaLabel, BorderLayout.CENTER);
 				searchCriteriaLabel.setVisible(true);
+				System.out.println(searchCriteria);
+				
+				contentPane.repaint();
 			}	
 		} );
 		
