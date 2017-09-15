@@ -2,10 +2,16 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import javafx.scene.paint.Color;
+
 import javax.swing.JLabel;
 import java.awt.FlowLayout;
+import java.awt.event.KeyEvent;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -19,7 +25,6 @@ public class DbQuery extends JFrame {
 	private JButton btnSearch;
 	private JScrollPane scrollPane;  
 	private JTable table;
-	private JComboBox filterList;
 	
 
 	public static void main(String[] args) {
@@ -31,14 +36,11 @@ public class DbQuery extends JFrame {
 		
 		setTitle("Database Search");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(400, 400, 900, 600);
+		setBounds(600, 600, 1200, 1200);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(50, 50, 50, 50));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane); 
-		
-		
-		
 		JPanel panel = new JPanel();
 		FlowLayout flowLayout = (FlowLayout) panel.getLayout();
 		flowLayout.setAlignment(FlowLayout.LEFT);
@@ -62,13 +64,36 @@ public class DbQuery extends JFrame {
 		scrollPane.setViewportView(table);
 		
 	
-	
+	//Drop down menus/ 
 		
-		String[] filterNames = { "Select State", "Alabama", "Alaska", "Arkansas", "California" };
-		JComboBox filterList = new JComboBox(filterNames);
-		panel.add(filterList);
+		String[] StateFilter = { "Select State", "Alabama", "Alaska", "Arkansas", "California" };
+		JComboBox stateList = new JComboBox(StateFilter);
+		panel.add(stateList);
+		
+		String[] studentStandingFilter = { "Select Year" ,"Rising Sophmore", "Rising Junior", "Rising Senior"};
+		JComboBox studentStandingList = new JComboBox(studentStandingFilter);
+		panel.add(studentStandingList);
+		
+		String[] compensationFilter = { "Select Financial Compensation", "Unpaid", "Paid", "Stipend"};
+		JComboBox compensationList = new JComboBox(compensationFilter);
+		panel.add(compensationList);
+		
+		String[] mainActivityFilter = { "Select Main Activity", "Block at CC", "Music performance/study", "Time off traveling", "Study abroad"
+				,"Summer Job", "Class at another institution", "Academic research position","Volunteer/service position" };
+		JComboBox mainActivityList = new JComboBox(mainActivityFilter);
+		panel.add(mainActivityList);
+		
+		JCheckBox internationalBox = new JCheckBox("International Students");
+		internationalBox.setMnemonic(KeyEvent.VK_C); 
+		internationalBox.setSelected(false);
+		panel.add(internationalBox);
 		
 
+		JCheckBox internshipBox = new JCheckBox("Internship");
+		internshipBox.setMnemonic(KeyEvent.VK_C); 
+		internshipBox.setSelected(false);
+		panel.add(internshipBox);
+		//internationalBox.addItemListener(this);
 		setVisible(true);
 		
 		
