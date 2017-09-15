@@ -49,7 +49,12 @@ public class DbQuery extends JFrame {
 	}
 
 	
-	public String getSearchCriteria(JComboBox state, JComboBox city, )
+	public String getSearchCriteria(JComboBox state, JComboBox standing, JComboBox compensationList,JComboBox mainActivityList, JCheckBox internationalBox, JCheckBox internshipBox)
+	{
+		String criteriaToReturn = (String) state.getSelectedItem() +" " + (String) standing.getSelectedItem()  +" " + (String) compensationList.getSelectedItem() +" " + (String) mainActivityList.getSelectedItem();
+		System.out.println(criteriaToReturn);
+		return criteriaToReturn;
+	}
 	
 	
 	
@@ -132,6 +137,7 @@ public class DbQuery extends JFrame {
 		panel.add(internshipBox);
 		panel.setBackground(Color.gray);
 		
+
 		
 		searchButton.addActionListener(new ActionListener() 
 		{
@@ -139,7 +145,9 @@ public class DbQuery extends JFrame {
 			public void actionPerformed(ActionEvent e) 
 			{
 				String searchCriteria = getSearchCriteria(stateList, studentStandingList, compensationList, mainActivityList, internationalBox, internshipBox);
-				
+				JLabel searchCriteriaLabel = new JLabel(searchCriteria);
+				contentPane.add(searchCriteriaLabel, BorderLayout.SOUTH);
+				searchCriteriaLabel.setVisible(true);
 			}	
 		} );
 		
